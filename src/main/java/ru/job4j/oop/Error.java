@@ -17,9 +17,9 @@ public class Error {
 
     public static void main(String[] args) {
         Error error = new Error();
-        Error error1 = new Error(true, 128, "Мало оперативы(");
-        Error error2 = new Error(true, 64, "Оперативы оооочень мало!!!");
-        Error error3 = new Error(false, 0, "Синий экран смерти");
+        Error error1 = new Error(true, 128, "РјР°Р»Рѕ РѕРїРµСЂР°С‚РёРІС‹(");
+        Error error2 = new Error(true, 64, "РѕРїРµСЂР°С‚РёРІС‹ РѕРѕРѕС‡РµРЅСЊ РјР°Р»Рѕ!!!");
+        Error error3 = new Error(false, 0, "СЃРёРЅРёР№ СЌРєСЂР°РЅ СЃРјРµСЂС‚Рё");
         error.printInfo();
         error1.printInfo();
         error2.printInfo();
@@ -28,8 +28,8 @@ public class Error {
     }
 
     public void printInfo() {
-        System.out.println("Сатутс работы: " + active);
-        System.out.println("Объём памяти: " + status + "Гб");
-        System.out.println("Сообщение о неисправности: " + message);
+        System.out.println("Р°РєС‚РёРІРЅРѕСЃС‚СЊ СЃРёСЃС‚РµРјС‹: " + active);
+        System.out.println("РѕР±СЉС‘Рј РїР°РјСЏС‚Рё: " + status + "РњР±");
+        System.out.println("СЃРѕРѕР±С‰РµРЅРёРµ Рѕ РЅРµРёСЃРїСЂР°РІРЅРѕСЃС‚Рё: " + message);
     }
 }
