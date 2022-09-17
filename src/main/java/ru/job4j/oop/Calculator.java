@@ -26,7 +26,6 @@ public class Calculator {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        calculator.sumAllOperation(10);
         System.out.println(sum(10));
         System.out.println(minus(10));
         System.out.println(calculator.multiply(10));
