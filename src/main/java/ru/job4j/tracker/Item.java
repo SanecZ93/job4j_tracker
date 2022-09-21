@@ -7,7 +7,11 @@ public class Item {
     private int id;
     private String name;
 
-    static LocalDateTime created = LocalDateTime.now();
+    private final LocalDateTime created = LocalDateTime.now();
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
 
     public Item(String name) {
         this.name = name;
@@ -25,10 +29,6 @@ public class Item {
         return id;
     }
 
-    static String getCreated() {
-        return created.format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss"));
-    }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -41,4 +41,3 @@ public class Item {
         this.name = name;
     }
 }
-
