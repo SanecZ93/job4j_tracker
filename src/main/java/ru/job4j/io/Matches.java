@@ -16,7 +16,7 @@ public class Matches {
         boolean valid = count >= matches && matches <= 3;
         if (valid) {
             turn = !turn;
-            count = count - matches;
+            count -= matches;
             System.out.println("Осталось " + count + " спичек");
         } else {
             System.out.println("Число должно быть не больше 3 и не больше количества оставшихся спичек!");
