@@ -18,7 +18,7 @@ public class Matches {
                 count -= matches;
                 System.out.println("Осталось " + count + " спичек");
              } else {
-            System.out.println("неверное число!");
+                System.out.println("неверное число!");
             }
         }
         if (!turn) {
