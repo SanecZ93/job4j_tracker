@@ -1,7 +1,7 @@
 package ru.job4j.poly;
 
 public interface Transport {
-    public boolean drive(String question);
+    void drive();
 
     public int passenger(String question);
 

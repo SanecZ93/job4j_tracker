@@ -2,8 +2,8 @@ package ru.job4j.poly;
 
 public class Bus implements Transport {
     @Override
-    public boolean drive(String question) {
-        return false;
+    public void drive() {
+        System.out.println("going to town");
     }
 
     @Override
