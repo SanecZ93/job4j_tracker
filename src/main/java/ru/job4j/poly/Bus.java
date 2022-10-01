@@ -7,11 +7,11 @@ public class Bus implements Transport {
 
     @Override
     public void passenger() {
-        System.out.println(24);
+        System.out.println(30);
     }
 
     @Override
-    public int fuel(String question) {
-        return 120 * 24;
+    public int fuel(int amount) {
+        return 24 * amount;
     }
 }

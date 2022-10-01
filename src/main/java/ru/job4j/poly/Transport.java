@@ -5,5 +5,5 @@ public interface Transport {
 
     void passenger();
 
-    public int fuel(String question);
+    int fuel(int amount);
 }
