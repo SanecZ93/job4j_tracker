@@ -7,7 +7,7 @@ public class Bus implements Transport {
 
     @Override
     public void passenger() {
-        System.out.println(30);
+        System.out.println(24);
     }
 
     @Override
