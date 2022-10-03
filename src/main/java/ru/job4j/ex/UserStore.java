@@ -31,5 +31,15 @@ public class UserStore {
         if (validate(user)) {
             System.out.println("This user has an access");
         }
+        try {
+            findUser(users, "Petr Arsentev");
+        } catch (UserNotFoundException a) {
+            a.printStackTrace();
+        }
+        try {
+            validate(user);
+        } catch (UserInvalidException p) {
+            p.printStackTrace();
+        }
     }
 }

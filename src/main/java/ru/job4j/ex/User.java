@@ -2,7 +2,7 @@ package ru.job4j.ex;
 
 public class User {
     private final String username;
-    private final boolean valid;
+    private boolean valid;
 
     public User(String username, boolean valid) {
         this.username = username;
@@ -14,7 +14,9 @@ public class User {
     }
 
     public boolean isValid() {
+        if (username.length() < 3) {
+            valid = false;
+        }
         return valid;
     }
-
 }
