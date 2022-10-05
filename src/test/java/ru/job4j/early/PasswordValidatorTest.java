@@ -6,7 +6,6 @@ import ru.job4j.ex.Fact;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
 
-
 public class PasswordValidatorTest {
 
     @Test
