@@ -112,6 +112,7 @@ public class StartUITest {
                         + "=== Exit ===" + ln
         );
     }
+
     @Test
     public void whenInvalidExit() {
         Output out = new StubOutput();
