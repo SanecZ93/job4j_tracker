@@ -2,7 +2,7 @@ package ru.job4j.early;
 
 public class PasswordValidator {
 
-    public static String validate(String password) {
+    public static String validate(String password, String dest) {
         if (password == null) {
             throw new IllegalArgumentException("password null");
         }
@@ -26,16 +26,12 @@ public class PasswordValidator {
             throw new IllegalArgumentException("The password must "
                     + "contain at least one special character");
         }
-        return password;
-    }
-
-    public static boolean processRegionMatches(String password, String dest) {
-            for (int i = password.length() - dest.length(); i >= 0; i--) {
-                if (password.regionMatches(true, i, dest, 0, dest.length())) {
-                    throw new IllegalArgumentException("The password must not contain case-insensitive substrings");
-                }
+        for (int i = password.length() - dest.length(); i >= 0; i--) {
+            if (password.regionMatches(true, i, dest, 0, dest.length())) {
+                throw new IllegalArgumentException("The password must not contain case-insensitive substrings");
             }
-        return true;
+        }
+        return password;
     }
 }
 

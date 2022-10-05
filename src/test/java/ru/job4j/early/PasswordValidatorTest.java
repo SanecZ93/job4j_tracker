@@ -3,7 +3,6 @@ package ru.job4j.early;
 import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
-import static ru.job4j.early.PasswordValidator.processRegionMatches;
 
 public class PasswordValidatorTest {
 
@@ -11,7 +10,7 @@ public class PasswordValidatorTest {
     public void whenEmptyPasswordNull() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> PasswordValidator.validate(null));
+                () -> PasswordValidator.validate(null, null));
         assertThat(exception.getMessage()).isEqualTo(
                 "password null");
     }
@@ -20,7 +19,7 @@ public class PasswordValidatorTest {
     public void whenEmptyPasswordNot8to32() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> PasswordValidator.validate("P@s$W1"));
+                () -> PasswordValidator.validate("P@s$W1", null));
         assertThat(exception.getMessage()).isEqualTo(
                 "the password must be between 8 and 32");
     }
@@ -29,7 +28,7 @@ public class PasswordValidatorTest {
     public void whenEmptyPasswordNotDigit() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> PasswordValidator.validate("P@s$WORdd"));
+                () -> PasswordValidator.validate("P@s$WORdd", null));
         assertThat(exception.getMessage()).isEqualTo(
                 "The password must contain at least one digit");
     }
@@ -38,7 +37,7 @@ public class PasswordValidatorTest {
     public void whenEmptyPasswordNotUpLitter() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> PasswordValidator.validate("p@s$w0rdd1"));
+                () -> PasswordValidator.validate("p@s$w0rdd1", null));
         assertThat(exception.getMessage()).isEqualTo(
                 "The password must contain at least one uppercase character");
     }
@@ -47,7 +46,7 @@ public class PasswordValidatorTest {
     public void whenEmptyPasswordNotLowLitter() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> PasswordValidator.validate("P@S$W0RD1"));
+                () -> PasswordValidator.validate("P@S$W0RD1", null));
         assertThat(exception.getMessage()).isEqualTo(
                 "The password must contain at least one lowercase character");
     }
@@ -56,29 +55,25 @@ public class PasswordValidatorTest {
     public void whenEmptyPasswordNotSpecialSymbol() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> PasswordValidator.validate("PaSsW0RD1"));
+                () -> PasswordValidator.validate("PaSsW0RD1", null));
         assertThat(exception.getMessage()).isEqualTo(
                 "The password must contain at least one special character");
-    }
-
-    @Test
-    public void whenValidPassword() {
-        String rsl = PasswordValidator.validate("P@s$W0Rdd1");
-        String expected = "P@s$W0Rdd1";
-        assertThat(rsl).isEqualTo(expected);
-    }
-
-    @Test
-    public void whetNotContainSubstrings() {
-        assertTrue(processRegionMatches("P@s$W0Rdd1", "Password"));
     }
 
     @Test
     public void whetContainSubstrings() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> PasswordValidator.processRegionMatches("Password123@", "Password"));
+                () -> PasswordValidator.validate("123#Password#321", "Password"));
         assertThat(exception.getMessage()).isEqualTo(
                 "The password must not contain case-insensitive substrings");
+    }
+
+
+    @Test
+    public void whenValidPassword() {
+        String rsl = PasswordValidator.validate("P@s$W0Rdd1", "Password");
+        String expected = "P@s$W0Rdd1";
+        assertThat(rsl).isEqualTo(expected);
     }
 }
