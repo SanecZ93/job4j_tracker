@@ -6,9 +6,9 @@ public class Find {
             throw new IllegalArgumentException("Index out of bound");
         }
         return data[index];
-        }
+    }
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         String[] data = {"one", "two", "three"};
         String rsl = Find.get(data, 0);
         System.out.println(rsl);
