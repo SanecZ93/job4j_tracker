@@ -18,7 +18,7 @@ public class PasswordValidator {
             throw new IllegalArgumentException("The password must "
                     + "contain at least one uppercase character");
         }
-        if (!password.matches("(.*[a-z].*)"))  {
+        if (!password.matches("(.*[a-z].*)")) {
             throw new IllegalArgumentException("The password must "
                     + "contain at least one lowercase character");
         }
@@ -28,6 +28,18 @@ public class PasswordValidator {
         }
         return password;
     }
+
+    public static boolean processRegionMatches(String password, String dest) {
+            for (int i = password.length() - dest.length(); i >= 0; i--) {
+                if (password.regionMatches(true, i, dest, 0, dest.length())) {
+                    throw new IllegalArgumentException("The password must not contain case-insensitive substrings");
+                }
+            }
+        return true;
+    }
 }
+
+
+
 
 

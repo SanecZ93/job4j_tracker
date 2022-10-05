@@ -2,7 +2,8 @@ package ru.job4j.early;
 
 import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.*;
+import static ru.job4j.early.PasswordValidator.processRegionMatches;
 
 public class PasswordValidatorTest {
 
@@ -65,5 +66,19 @@ public class PasswordValidatorTest {
         String rsl = PasswordValidator.validate("P@s$W0Rdd1");
         String expected = "P@s$W0Rdd1";
         assertThat(rsl).isEqualTo(expected);
+    }
+
+    @Test
+    public void whetNotContainSubstrings() {
+        assertTrue(processRegionMatches("P@s$W0Rdd1", "Password"));
+    }
+
+    @Test
+    public void whetContainSubstrings() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> PasswordValidator.processRegionMatches("Password123@", "Password"));
+        assertThat(exception.getMessage()).isEqualTo(
+                "The password must not contain case-insensitive substrings");
     }
 }
