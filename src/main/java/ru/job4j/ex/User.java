@@ -14,9 +14,6 @@ public class User {
     }
 
     public boolean isValid() {
-        if (username.length() < 3) {
-            valid = false;
-        }
         return valid;
     }
 }

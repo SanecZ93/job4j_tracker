@@ -8,6 +8,7 @@ public class UserStore {
         for (User user : users) {
             if (Objects.equals(user.getUsername(), login)) {
                 rsl = user;
+                break;
             }
         }
         if (rsl == null) {
@@ -17,7 +18,7 @@ public class UserStore {
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if (!user.isValid()) {
+        if (!user.isValid() || user.getUsername().length() < 3) {
             throw new UserInvalidException("Имя не валидное");
         }
         return true;
@@ -33,13 +34,11 @@ public class UserStore {
         }
         try {
             findUser(users, "Petr Arsentev");
-        } catch (UserNotFoundException a) {
-            a.printStackTrace();
-        }
-        try {
             validate(user);
-        } catch (UserInvalidException p) {
-            p.printStackTrace();
+        } catch (UserInvalidException ea) {
+            ea.printStackTrace();
+        } catch (UserNotFoundException en) {
+            en.printStackTrace();
         }
     }
 }
