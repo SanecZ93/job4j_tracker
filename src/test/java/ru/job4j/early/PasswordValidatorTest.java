@@ -69,7 +69,6 @@ public class PasswordValidatorTest {
                 "The password must not contain case-insensitive substrings");
     }
 
-
     @Test
     public void whenValidPassword() {
         String rsl = PasswordValidator.validate("P@s$W0Rdd1", "Password");
