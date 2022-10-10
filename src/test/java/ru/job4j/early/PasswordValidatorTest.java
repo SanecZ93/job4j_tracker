@@ -64,15 +64,15 @@ public class PasswordValidatorTest {
     public void whetContainSubstrings() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> PasswordValidator.validate("PaSsWoRd123$"));
+                () -> PasswordValidator.validate("PaSsWoRd1$"));
         assertThat(exception.getMessage()).isEqualTo(
                 "The password must not contain case-insensitive substrings");
     }
 
     @Test
     public void whenValidPassword() {
-        String rsl = PasswordValidator.validate("Pa$$f0Rdd1");
-        String expected = "Pa$$f0Rdd1";
+        String rsl = PasswordValidator.validate("Pa$$woRdd1");
+        String expected = "Pa$$woRdd1";
         assertThat(rsl).isEqualTo(expected);
     }
 }

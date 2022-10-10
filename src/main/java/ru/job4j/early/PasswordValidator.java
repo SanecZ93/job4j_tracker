@@ -26,67 +26,70 @@ public class PasswordValidator {
             throw new IllegalArgumentException("The password must "
                     + "contain at least one special character");
         }
-        boolean valid = password.toUpperCase().contains("PASSWORD".toUpperCase())
-                    || password.toLowerCase().contains("password".toLowerCase())
-                    || password.toUpperCase().contains("USER".toUpperCase())
-                    || password.toLowerCase().contains("user".toLowerCase())
-                    || password.toUpperCase().contains("QWERTY".toUpperCase())
-                    || password.toLowerCase().contains("qwerty".toLowerCase())
-                    || password.toUpperCase().contains("ADMIN".toUpperCase())
-                    || password.toLowerCase().contains("admin".toLowerCase())
-                    || password.contains("12345");
-            if (valid) {
-                throw new IllegalArgumentException("The password must "
-                        + "not contain case-insensitive substrings");
-            }
-            return password;
+        if (PasswordValidator.substrings(password)) {
+            throw new IllegalArgumentException("The password must "
+                    + "not contain case-insensitive substrings");
+        }
+        return password;
     }
 
-    private static boolean isDigit(String password) {
-        Boolean valid = null;
-        for (int i = 0; i < password.length(); i++) {
-            int code = password.codePointAt(i);
-            valid = !Character.isDigit(code);
-            if (!valid) {
+        public static boolean isDigit(String password) {
+            boolean valid = true;
+            for (int i = 0; i < password.length(); i++) {
+                int code = password.codePointAt(i);
+                valid = !Character.isDigit(code);
+                if (!valid) {
+                    break;
+                }
+            }
+            return valid;
+        }
+
+        public static boolean upLitter(String password) {
+            boolean valid = true;
+            for (int i = 0; i < password.length(); i++) {
+                int code = password.codePointAt(i);
+                valid = !Character.isUpperCase(code);
+                if (!valid) {
+                    break;
+                }
+            }
+            return valid;
+        }
+
+        public static boolean lowLitter(String password) {
+            boolean valid = true;
+            for (int i = 0; i < password.length(); i++) {
+                int code = password.codePointAt(i);
+                valid = !Character.isLowerCase(code);
+                if (!valid) {
+                    break;
+                }
+            }
+            return valid;
+        }
+
+        public static boolean specialSymbol(String password) {
+            boolean valid = true;
+            for (int i = 0; i < password.length(); i++) {
+                int code = password.codePointAt(i);
+                valid = !(code == 36 || code == 95);
+                if (!valid) {
+                    break;
+                }
+            }
+            return valid;
+    }
+
+    public static boolean substrings(String password) {
+        boolean contain = false;
+        String[] subString = {"password", "user", "qwerty", "admin", "12345"};
+        for (String s : subString) {
+            contain = (password.toLowerCase().contains(s.toLowerCase()));
+            if (contain) {
                 break;
             }
         }
-        return Boolean.TRUE.equals(valid);
-    }
-
-    private static boolean upLitter(String password) {
-        Boolean valid = null;
-        for (int i = 0; i < password.length(); i++) {
-            int code = password.codePointAt(i);
-            valid = !Character.isUpperCase(code);
-            if (!valid) {
-                break;
-            }
-        }
-        return Boolean.TRUE.equals(valid);
-    }
-
-    private static boolean lowLitter(String password) {
-        Boolean valid = null;
-        for (int i = 0; i < password.length(); i++) {
-            int code = password.codePointAt(i);
-            valid = !Character.isLowerCase(code);
-            if (!valid) {
-                break;
-            }
-        }
-        return Boolean.TRUE.equals(valid);
-    }
-
-    private static boolean specialSymbol(String password) {
-        Boolean valid = null;
-        for (int i = 0; i < password.length(); i++) {
-            int code = password.codePointAt(i);
-            valid = !(code == 36 || code == 95);
-            if (!valid) {
-                break;
-            }
-        }
-        return Boolean.TRUE.equals(valid);
+        return contain;
     }
 }
