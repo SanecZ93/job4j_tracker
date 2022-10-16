@@ -4,7 +4,6 @@ import java.util.Objects;
 
 public class Airbus extends Aircraft {
     private static final int COUNT_ENGINE = 2;
-    private static final int A380_ENGINE = 4;
 
     private String name;
 
@@ -27,7 +26,7 @@ public class Airbus extends Aircraft {
 
     public void printCountEngine() {
         String engine = Objects.equals(name, "A380")
-                ? "Количество двигателей равно: " + A380_ENGINE
+                ? "Количество двигателей равно: " + (COUNT_ENGINE + 2)
                 : "Количество двигателей равно: " + COUNT_ENGINE;
         System.out.println(engine);
     }
