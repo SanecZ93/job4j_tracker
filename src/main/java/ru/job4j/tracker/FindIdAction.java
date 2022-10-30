@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+/*package ru.job4j.tracker;
 
 public class FindIdAction implements UserAction {
     private final Output out;
@@ -25,3 +25,4 @@ public class FindIdAction implements UserAction {
         return true;
     }
 }
+*/

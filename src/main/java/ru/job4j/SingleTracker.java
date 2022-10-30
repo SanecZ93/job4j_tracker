@@ -23,7 +23,7 @@ public class SingleTracker {
         return tracker.add(item);
     }
 
-    public Item[] findAll() {
+   /* public Item[] findAll() {
         return tracker.findAll();
     }
 
@@ -42,4 +42,4 @@ public class SingleTracker {
     public boolean delete(int id) {
         return tracker.delete(id);
     }
-}
+*/}
