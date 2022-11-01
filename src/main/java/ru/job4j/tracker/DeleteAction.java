@@ -1,4 +1,4 @@
-/*package ru.job4j.tracker;
+package ru.job4j.tracker;
 
 public class DeleteAction implements UserAction {
     private final Output out;
@@ -24,4 +24,3 @@ public class DeleteAction implements UserAction {
         return true;
     }
 }
-*/
