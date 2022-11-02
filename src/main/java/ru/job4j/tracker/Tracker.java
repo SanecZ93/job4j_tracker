@@ -32,7 +32,7 @@ public class Tracker {
     public int indexOf(int id) {
         int index = -1;
         for (int i = 0; i < items.size(); i++) {
-            if (items.get(i) != null && items.get(i).getId() == id) {
+            if (items.get(i).getId() == id) {
                 index = i;
                 break;
             }
@@ -59,7 +59,7 @@ public class Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            items.set(index, null);
+            items.remove(index);
         }
         return rsl;
     }
