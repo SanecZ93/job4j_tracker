@@ -16,10 +16,6 @@ public class PassportOffice {
     }
 
     public Citizen get(String passport) {
-        Citizen value = null;
-        if (citizens.get(passport) != null) {
-            value = citizens.get(passport);
-        }
-        return value;
+        return citizens.get(passport);
     }
 }
