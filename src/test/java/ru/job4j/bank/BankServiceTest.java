@@ -1,10 +1,11 @@
-/*package ru.job4j.bank;
+package ru.job4j.bank;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BankServiceTest {
-    @Test
+
+   @Test
     public void addUser() {
         User user = new User("3434", "Petr Arsentev");
         BankService bank = new BankService();
@@ -103,4 +104,4 @@ public class BankServiceTest {
         bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "1131", 150D);
         assertThat(bank.findByRequisite(user.getPassport(), "5546").getBalance()).isEqualTo(150D);
     }
-}*/
+}
