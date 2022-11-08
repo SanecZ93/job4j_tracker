@@ -4,7 +4,7 @@ import java.util.*;
 
 public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
-       double score = 0;
+        double score = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
                 score += (double) subject.score() / (pupil.subjects().size() * pupils.size());
