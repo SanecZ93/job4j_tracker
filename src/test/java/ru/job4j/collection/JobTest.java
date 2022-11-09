@@ -13,7 +13,7 @@ public class JobTest {
                 new Job("Impl task", 1),
                 new Job("Fix bug", 4)
         );
-        assertThat(rsl).isGreaterThan(1);
+        assertThat(rsl).isGreaterThan(0);
     }
 
     @Test
@@ -23,24 +23,24 @@ public class JobTest {
                 new Job("Impl task", 1),
                 new Job("Fix bug", 4)
         );
-        assertThat(rsl).isLessThan(1);
+        assertThat(rsl).isLessThan(0);
     }
 
     @Test
     public void whenCompatorAscByPriority() {
         Comparator<Job> nameAsc = new JobAscByPriority();
         int rsl = nameAsc.compare(
-                new Job("Impl task", 1),
+                new Job("Fix bug", 1),
                 new Job("Fix bug", 4)
         );
-        assertThat(rsl).isLessThan(1);
+        assertThat(rsl).isLessThan(0);
     }
 
     @Test
     public void whenCompatorDescByPriority() {
         Comparator<Job> nameAsc = new JobDescByPriority();
         int rsl = nameAsc.compare(
-                new Job("Impl task", 1),
+                new Job("Fix bug", 1),
                 new Job("Fix bug", 4)
         );
         assertThat(rsl).isGreaterThan(0);
@@ -50,19 +50,19 @@ public class JobTest {
     public void whenCompatorAscByNameAndPriority() {
         Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
         int rsl = cmpNamePriority.compare(
-                new Job("Impl task", 0),
+                new Job("Fix bug", 0),
                 new Job("Fix bug", 1)
         );
-        assertThat(rsl).isGreaterThan(1);
+        assertThat(rsl).isLessThan(0);
     }
 
     @Test
     public void whenCompatorDescByNameAndPriority() {
         Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
         int rsl = cmpNamePriority.compare(
-                new Job("Impl task", 0),
+                new Job("Fix bug", 0),
                 new Job("Fix bug", 1)
         );
-        assertThat(rsl).isLessThan(0);
+        assertThat(rsl).isGreaterThan(0);
     }
 }
