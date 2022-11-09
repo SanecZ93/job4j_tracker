@@ -20,6 +20,6 @@ public class ItemAscByNameTest {
                 new Item("Pavel"),
                 new Item("Vlad"))
         );
-        assertThat(items.toString()).isEqualTo(expected.toString());
+        assertThat(items).isEqualTo(expected);
     }
 }

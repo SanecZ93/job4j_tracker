@@ -21,6 +21,6 @@ public class ItemDescByNameTest {
                 new Item("Ivan"),
                 new Item("Alex"))
         );
-        assertThat(items.toString()).isEqualTo(expected.toString());
+        assertThat(items).isEqualTo(expected);
     }
 }
