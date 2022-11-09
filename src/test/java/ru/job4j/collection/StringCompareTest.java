@@ -63,6 +63,7 @@ public class StringCompareTest {
         );
         assertThat(rst).isGreaterThan(0);
     }
+
     @Test
     public void thirdCharOfLeftGreaterThanRightShouldBeNegative() {
         StringCompare compare = new StringCompare();
