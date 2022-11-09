@@ -53,4 +53,23 @@ public class StringCompareTest {
         );
         assertThat(rst).isLessThan(0);
     }
+
+    @Test
+    public void thirdCharOfLeftGreaterThanRightShouldBePositive() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "Patrovaaapa",
+                "Patrova"
+        );
+        assertThat(rst).isGreaterThan(0);
+    }
+    @Test
+    public void thirdCharOfLeftGreaterThanRightShouldBeNegative() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "Patrova",
+                "Patrovaaaa"
+        );
+        assertThat(rst).isLessThan(0);
+    }
 }
