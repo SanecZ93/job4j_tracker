@@ -5,15 +5,14 @@ import java.util.function.Supplier;
 public class ScopeInside {
     public static void main(String[] args) {
         int[] number = {1, 2, 3};
-        var ref = new Object() {
-            int total = 0;
-        };
+        int total = 0;
         for (int num : number) {
-            ref.total = add(
-                    () -> ref.total + num
+            int value = total;
+            total = add(
+                    () -> value + num
             );
         }
-        System.out.println(ref.total);
+        System.out.println(total);
     }
 
     private static Integer add(Supplier<Integer> calc) {
