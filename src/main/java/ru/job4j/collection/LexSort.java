@@ -10,5 +10,3 @@ public class LexSort implements Comparator<String> {
                 Integer.parseInt(right.split(". ")[0]));
     }
 }
-
-
