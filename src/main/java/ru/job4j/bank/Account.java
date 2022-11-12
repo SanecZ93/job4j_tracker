@@ -2,7 +2,17 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * класс регистрирует банковский счёт пользователя
+ * @author ALEXANDR ZYRYANOV
+ * @version 1.0
+ */
 public class Account {
+
+    /**
+     * requisite поле, предназначенные для хранения реквизита банковского счёта
+     * balance поле, предназначенное для хранения значение суммы банковского счёта
+     */
     private String requisite;
     private double balance;
 

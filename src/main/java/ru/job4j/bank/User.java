@@ -3,7 +3,17 @@ package ru.job4j.bank;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * класс регистрирует пользователя банковской системы
+ * @author ALEXANDR ZYRYANOV
+ * @version 1.0
+ */
 public class User extends ArrayList<Account> {
+
+    /**
+     * passport поле, предназначенные для хранения номера паспорта
+     * username поле, предназначенное для хранения имя пользователя
+     */
     private String passport;
     private String username;
 
