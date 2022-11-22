@@ -8,8 +8,10 @@ public class Departments {
         Set<String> tmp = new LinkedHashSet<>();
         for (String value : deps) {
             String start = "";
-            tmp.add(start + value.split("/")[0]);
-            tmp.add(start + value);
+            for (String el : value.split("/")) {
+               start += "".equals(start) ? el : "/" + el;
+               tmp.add(start);
+            }
         }
         return new ArrayList<>(tmp);
     }
