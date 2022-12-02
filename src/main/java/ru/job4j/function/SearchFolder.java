@@ -1,4 +1,4 @@
-package ru.job4j.function;
+/*package ru.job4j.function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,4 +31,4 @@ public class SearchFolder {
         }
         return new ArrayList<>();
     }
-}
+}*/
