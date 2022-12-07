@@ -21,6 +21,7 @@ public class ProfilesTest {
         List<Address> expected = Arrays.asList(first, second, third);
         assertThat(result).containsAll(expected);
     }
+
     @Test
     public void whenTestMethodCollectSortWithoutDuplicate() {
         Address first = new Address("City1", "Street1", 1, 1);
