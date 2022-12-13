@@ -6,7 +6,7 @@ public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
         double score = 0;
         for (Pupil pupil : pupils) {
-            for (Subject subject : pupil.subjects()) {
+            for (SubjectOld subject : pupil.subjects()) {
                 score += (double) subject.score() / (pupil.subjects().size() * pupils.size());
             }
         }
@@ -17,7 +17,7 @@ public class AnalyzeByMap {
         List<Label> labels = new ArrayList<>();
         for (Pupil pupil : pupils) {
             double score = 0;
-            for (Subject subject : pupil.subjects()) {
+            for (SubjectOld subject : pupil.subjects()) {
                 score += (double) subject.score() / pupil.subjects().size();
             }
             labels.add(new Label(pupil.name(), score));
@@ -29,7 +29,7 @@ public class AnalyzeByMap {
         Map<String, Integer> label = new LinkedHashMap<>();
         List<Label> labels = new ArrayList<>();
         for (Pupil pupil : pupils) {
-            for (Subject subject : pupil.subjects()) {
+            for (SubjectOld subject : pupil.subjects()) {
                 label.put(subject.name(), label.getOrDefault(subject.name(), 0) + subject.score());
             }
         }
@@ -43,7 +43,7 @@ public class AnalyzeByMap {
         List<Label> labels = new ArrayList<>();
         for (Pupil pupil : pupils) {
             double score = 0;
-            for (Subject subject : pupil.subjects()) {
+            for (SubjectOld subject : pupil.subjects()) {
                 score += subject.score();
             }
             labels.add(new Label(pupil.name(), score));
@@ -56,7 +56,7 @@ public class AnalyzeByMap {
         Map<String, Integer> label = new LinkedHashMap<>();
         List<Label> labels = new ArrayList<>();
         for (Pupil pupil : pupils) {
-            for (Subject subject : pupil.subjects()) {
+            for (SubjectOld subject : pupil.subjects()) {
                 Integer score = subject.score();
                 label.put(subject.name(), label.getOrDefault(subject.name(), 0) + score);
             }
