@@ -11,12 +11,6 @@ public class College {
     }
 
     public Student findByAccount(String account) {
-//        for (Student s : students.keySet()) {
-//            if (s.getAccount().equals(account)) {
-//                return s;
-//            }
-//        }
-//        return null;
         return students.keySet()
                 .stream()
                 .filter(s -> s.getAccount().equals(account))
@@ -25,16 +19,6 @@ public class College {
     }
 
     public Subject findBySubjectName(String account, String name) {
-//        Student a = findByAccount(account);
-//        if (a != null) {
-//            Set<Subject> subjects = students.get(a);
-//            for (Subject s : subjects) {
-//                if (s.getName().equals(name)) {
-//                    return s;
-//                }
-//            }
-//        }
-//        return null;
         Student a = findByAccount(account);
         if (a != null) {
             return students.get(a)
