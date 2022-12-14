@@ -3,19 +3,25 @@ package ru.job4j.stream;
 import java.util.stream.Stream;
 
 public class Card {
-    private Suit[] suit;
-    private Value[] value;
+    private Suit suit;
+    private Value value;
 
-    public Card(Suit[] suit, Value[] value) {
+    public Card(Suit suit, Value value) {
         this.suit = suit;
         this.value = value;
     }
 
+    public String toString() {
+        return "Card{"
+                + "suit=" + suit
+                + ", value=" + value
+                + '}';
+    }
+
     public static void main(String[] args) {
-    Card cards = new Card(Suit.values(), Value.values());
-        Stream.of(cards.suit)
-            .flatMap(suit -> Stream.of(cards.value)
-                    .map(value -> suit + " " + value))
+        Stream.of(Suit.values())
+            .flatMap(suit -> Stream.of(Value.values())
+                    .map(value ->  new Card(suit, value)))
             .forEach(System.out::println);
     }
 }
